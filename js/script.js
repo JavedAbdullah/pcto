@@ -5,6 +5,7 @@ const csvFileInput = document.querySelector("#csvFileInput");
 let x = document.cookie;
 //document.write(x);
 let id_utente = x.substring(3, x.length);
+let array_3d = [];
 
 console.log(id_utente);
 
@@ -49,10 +50,11 @@ if (csvFileInput) {
                     let result = valore.map(i => Number(i));
                     result[0] = id_utente;
 
-                    result.splice(1, 0, array_of_title[i])
+                    result.splice(1, 0, array_of_title[i]);
+                    array_3d.push(result);
                     fetch('main.php', {
                         method: 'post',
-                        body: JSON.stringify(result),
+                        body: JSON.stringify(array_3d),
 
                     })
 
@@ -70,6 +72,13 @@ if (csvFileInput) {
             }
         });
     });
+    //console.log(array_3d);
+    // let myJSON = JSON.stringify(array_3d);
+    // fetch('main.php', {
+    //     method: 'post',
+    //     body: myJSON,
+
+    // })
 }
 
 

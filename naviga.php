@@ -48,12 +48,12 @@
 <body>
 
 <?php
-	$connection = mysqli_connect("localhost","root","","test",3326);
+	$connection = mysqli_connect("localhost","root","","csvdata",3326);
 						    	#$connection = mysqli_connect("localhost","root","","DB_Bed_and_Breakfast",3306); nel caso non si connettesse al database, togliere la password
 									$username=$_POST["nome"];
 									$password=$_POST["Password"];
 									
-									$query="SELECT * FROM prova WHERE username='$username' AND password='$password'";
+									$query="SELECT * FROM utente WHERE username='$username' AND passwd='$password'";
 									$result = mysqli_query($connection,$query);
 									if(mysqli_num_rows($result)<1)
 									{
@@ -76,18 +76,20 @@
 										// {
 										// 	print("Cookie created | ");
 										// }
+                                      echo"  <a href='disegnaACC.php'>vai al disegno dei ACC</a>";
+                                       echo" <br>";
+                                      echo"  <a href='main.php'> vai nella pagina php</a>";
+                                      echo"  <br>";
+                                       echo" <a href='Login.php'>vai al login</a>";
 										
 									}
+                                    mysqli_close($connection);
 ?>
 
 
 
 
-    <a href="disegnaACC.php">vai al disegno dei ACC</a>
-    <br>
-    <a href="main.php"> vai nella pagina php</a>
-    <br>
-    <a href="Login.php">vai al login</a>
+   
 
     <!-- 
 <div id="accX" style="height: 400px; min-width: 310px"></div>
