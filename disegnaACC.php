@@ -21,36 +21,33 @@
 
 <body>
 
-    <input type="file" id="csvFileInput" style="padding-bottom: 15px">
+
+    <form action="main.php"  method="POST" enctype="multipart/form-data">
+
+    <input type="file" id="csvFileInput" name="csvFileInput" style="padding-bottom: 15px">
+    <input type="submit" value="carica nel DataBase" id="disegna">
+    </form>
+
 
     <main>
         <div class="chart-container" id="chart-container">
-
-
-
-
-            <!-- <div class="isResizable" id="accX">
-	
-	
-	</div>
-	
-	</div>
-	
-	<div class="chart-container">
-		<div class="isResizable" id="accY">
-	
-	
-		</div>
-	</div>
-	
-	<div class="chart-container">
-		<div class="isResizable" id="accZ">
-	
-		</div> -->
         </div>
-
     </main>
 
+
+
+
+
+
+
+    <?php
+
+        //  $file = $_FILES["csvFileInput"]["tmp_name"];
+        //  $newDir = str_replace('\\', '/', $file);
+        //  echo $newDir;
+    // echo  $_FILES["csvFileInput"]["tmp_name"];
+
+    ?>
 
 
 

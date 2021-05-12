@@ -2,15 +2,16 @@ const DivContainer = document.getElementById("chart-container");
 const csvFileInput = document.querySelector("#csvFileInput");
 
 
+
 let x = document.cookie;
 //document.write(x);
 let id_utente = x.substring(3, x.length);
-let array_3d = [];
 
-console.log(id_utente);
 
-//vedo che non sia nullo
+
+let valore_del_file = "";
 if (csvFileInput) {
+
 
     csvFileInput.addEventListener("change", (e) => {
         Papa.parse(csvFileInput.files[0], {
@@ -23,9 +24,12 @@ if (csvFileInput) {
                 //                       riga/colonna
                 // console.log(results.data[0][0])
                 // console.log(results.data[1][0])
-                let array_of_element = results.data.slice(1)
-                let array_of_title = results.data[0]
 
+                let array_of_element = results.data.slice(1);
+                let array_of_title = results.data[0];
+                valore_del_file = array_of_title;
+                console.log(valore_del_file[1]);
+                document.cookie = "tipo_file=" + valore_del_file[1];
                 // console.log( array_of_element.length)
                 // console.log(array_of_title.length)
                 //come contare gli elemnti nel array Javascript
@@ -48,15 +52,8 @@ if (csvFileInput) {
 
                     }
                     let result = valore.map(i => Number(i));
-                    result[0] = id_utente;
 
-                    result.splice(1, 0, array_of_title[i]);
-                    array_3d.push(result);
-                    fetch('main.php', {
-                        method: 'post',
-                        body: JSON.stringify(array_3d),
 
-                    })
 
 
                     addNewDiv(array_of_title[i]);
@@ -71,6 +68,7 @@ if (csvFileInput) {
 
             }
         });
+
     });
     //console.log(array_3d);
     // let myJSON = JSON.stringify(array_3d);
@@ -79,7 +77,22 @@ if (csvFileInput) {
     //     body: myJSON,
 
     // })
+
 }
+// let a = "acc"
+// fetch('main.php', {
+//     method: 'post',
+//     body: JSON.stringify(a),
+
+// })
+
+
+
+
+
+
+
+//vedo che non sia nullo
 
 
 // let x = document.cookie;
