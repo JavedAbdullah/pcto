@@ -39,15 +39,25 @@
             return $newDir;
         }
 
+      //  upload($nome_file,$connection,$id_utente,"acc");
+
+      if(str_contains($tipo_file,"acc")){
+        upload($nome_file,$connection,$id_utente,"acc");
+      }elseif(str_contains($tipo_file,"respiration")){
+        upload($nome_file,$connection,$id_utente,"ecg");
+      }elseif(str_contains($tipo_file,"gyro")){
         upload($nome_file,$connection,$id_utente,"gyro");
+      }
 
-
+       
         function upload($nome_file, $connection, $id_utente, $table){
             /*
                 Esegue la query per caricare il csv nella tabella ($table) corrispondente
         
                 $sessione = id sessione di allenamento che ci interessa
             */
+            $date = date('m/d/Y h:i:s a', time());
+            
             try {
                 $file = clean_dir($nome_file);
                 $query = "LOAD DATA INFILE '". $file. "'
@@ -56,7 +66,7 @@
                 ENCLOSED BY '\"'
                 LINES TERMINATED BY '\\n'
                 IGNORE 1 ROWS
-                SET id_utente= $id_utente";
+                SET id_utente= $id_utente,time_inserimento='$date' ";
         
                 $result = mysqli_query($connection, $query);
         

@@ -10,6 +10,8 @@ let id_utente = x.substring(3, x.length);
 
 
 let valore_del_file = "";
+let ecg_dati = 0;
+let conta = 0;
 if (csvFileInput) {
 
 
@@ -28,7 +30,7 @@ if (csvFileInput) {
                 let array_of_element = results.data.slice(1);
                 let array_of_title = results.data[0];
                 valore_del_file = array_of_title;
-                console.log(valore_del_file[1]);
+
                 document.cookie = "tipo_file=" + valore_del_file[1];
                 // console.log( array_of_element.length)
                 // console.log(array_of_title.length)
@@ -54,11 +56,26 @@ if (csvFileInput) {
                     let result = valore.map(i => Number(i));
 
 
+                    ecg_dati = ecg_dati + result;
+                    if (array_of_title[i] == "ecgLead1" || array_of_title[i] == "ecgLead2" || array_of_title[i] == "ecgLead3") {
+                        conta++;
+                        if (conta == 3) {
+                            ecg_dati = ecg_dati / 3;
+                            addNewDiv("ecgLead media");
+                            disegnaGrafico(result, "ecgLead media");
+                            $('.isResizable').resizable();
+
+                        }
+
+                    } else {
+                        addNewDiv(array_of_title[i]);
+                        disegnaGrafico(result, array_of_title[i]);
+                        $('.isResizable').resizable();
+                    }
 
 
-                    addNewDiv(array_of_title[i]);
-                    disegnaGrafico(result, array_of_title[i]);
-                    $('.isResizable').resizable();
+
+
 
                 }
                 //console.log(assex)
