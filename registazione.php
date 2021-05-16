@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Login </title>
+    <title>Registrazione</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -35,12 +35,12 @@
         <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
             <div class="wrap-login100 p-t-30 p-b-50">
                 <span class="login100-form-title p-b-41">
-					Account Login
-				</span>
+                    REGISTRA ACCOUNT
+                </span>
                 <form class="login100-form validate-form p-b-33 p-t-5" action="naviga.php" method="POST">
 
                     <div class="wrap-input100 validate-input" data-validate="Enter username">
-                        <input class="input100" type="text" name="nome" placeholder="User name">
+                        <input class="input100" type="text" name="user" placeholder="User name">
                         <span class="focus-input100" data-placeholder="&#xe82a;"></span>
                     </div>
 
@@ -48,11 +48,44 @@
                         <input class="input100" type="password" name="Password" placeholder="Password">
                         <span class="focus-input100" data-placeholder="&#xe80f;"></span>
                     </div>
+                    <div class="wrap-input100 validate-input" data-validate="Enter username">
+                        <input class="input100" type="text" name="nome" placeholder="inseire il Nome">
+                        <span class="focus-input100" data-placeholder="&#xe82a;"></span>
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate="Enter username">
+                        <input class="input100" type="text" name="cognome" placeholder="inseire il cognome">
+                        <span class="focus-input100" data-placeholder="&#xe82a;"></span>
+                    </div>
+                    <br>
+                    <center>
+                   <strong><h3>scegliere la data di nascita</h3></strong> 
+                    </center>
+                    <div class="wrap-input100 validate-input" data-validate="Enter username">
+                        <input class="input100" type="date" name="cognome" placeholder="inseire il cognome">
+                       
+                    </div>
+
+                    <br>
+
+
+
+
+                    <center>
+                    <div class="" data-validate="Enter username" >
+                    <h5>sei un allenatore?</h5>
+                    <br>
+                    <select id="allenatore_si_no">
+                        <option value="SI">Si</option>
+                        <option value="NO">NO</option>
+                        
+                    </select>
+                    </div>
+                    </center>
 
                     <div class="container-login100-form-btn m-t-32">
                         <button class="login100-form-btn" name="Login" value="Login">
-							Login
-						</button>
+                            Registrati
+                        </button>
                     </div>
 
                 </form>

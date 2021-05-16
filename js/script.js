@@ -63,14 +63,14 @@ if (csvFileInput) {
                             ecg_dati = ecg_dati / 3;
                             addNewDiv("ecgLead media");
                             disegnaGrafico(result, "ecgLead media");
-                            $('.isResizable').resizable();
+                            //$('.isResizable').resizable();
 
                         }
 
                     } else {
                         addNewDiv(array_of_title[i]);
                         disegnaGrafico(result, array_of_title[i]);
-                        $('.isResizable').resizable();
+                        //$('.isResizable').resizable();
                     }
 
 
